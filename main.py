@@ -34,6 +34,24 @@ def add_route(target_host, gateway):
         print(f"An unexpected error occurred: {e}")
         return False
 
+def delete_route(target_host):
+    """Deletes a network route from the system's routing table.
+    Returns True on success, False on failure.
+    """
+    try:
+        command = ["route", "DELETE", target_host]
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        print(f"Successfully deleted route: {target_host}")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Error deleting route: {e}")
+        print(f"Stdout: {e.stdout}")
+        print(f"Stderr: {e.stderr}")
+        return False
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return False
+
 def main():
     """Main function to run the tool."""
     if not is_admin():
