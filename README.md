@@ -27,7 +27,6 @@ graph TD
     A -- "讀取設定" --> B
     C -- "測試" --> A
 
-    style G fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
 #### **4. 開發流程：測試驅動開發 (TDD)**
