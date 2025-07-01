@@ -28,6 +28,7 @@ graph TD
         H["GEMINI.md (專案總結與開發注意事項)"]
         I[".venv/ (Python 虛擬環境)"]
         J["requirements.txt (相依套件列表)"]
+        K["network reference/ (網路參考資料)"]
     end
     A -- "讀取設定" --> B
     C -- "測試" --> A

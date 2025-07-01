@@ -22,6 +22,7 @@ graph TD
         F["ROADMAP.md (開發路線圖)"]
         H["GEMINI.md (專案總結與注意事項)"]
         I[".venv/ (虛擬環境)"]
+        J["network reference/ (網路參考資料)"]
     end
 
     A -- "讀取設定" --> B

@@ -5,7 +5,13 @@
 本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
 
-## [0.2.0] - 2025-07-01
+## [0.3.0] - 2025-07-01
+
+### 新增 (Added)
+- 實作了設定系統 Proxy 的功能。
+- 新增 `network reference/` 資料夾，包含舊版手動切換網路設定的參考檔案。
+
+## [02.0] - 2025-07-01
 
 ### 新增 (Added)
 - 實作了程式啟動時的系統管理員權限檢查。
