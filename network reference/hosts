@@ -1,0 +1,113 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+
+10.7.243.9		y6fs4.csc.com.tw
+10.7.243.10		y6psvr06.csc.com.tw
+
+10.20.246.101	y4web.csc.com.tw
+
+172.16.68.1		mvatcp.csc.com.tw
+172.16.68.2		mvctcp.csc.com.tw
+172.16.68.5		mvdtcp.csc.com.tw
+
+172.16.246.31		ana.csc.com.tw
+172.16.246.62		cybersec.csc.com.tw
+172.16.246.73		its.csc.om.tw
+172.16.246.87		eip2.csc.com.tw
+
+172.16.247.37		w7web.csc.com.tw
+172.16.247.120		t16-ap20.tw.csc.com
+172.16.247.234		dr_web_prod.ns-ap.object.csc.com.tw
+
+172.16.248.3		east.csc.com.tw
+172.16.248.25		eas.csc.com.tw
+172.16.248.26		erp.csc.com.tw
+172.16.248.29		sso.csc.com.tw
+172.16.248.145		avap.csc.com.tw
+
+172.16.250.12		cas.csc.com.tw
+172.16.250.40		kd.csc.com.tw
+172.16.250.68		intra10.csc.com.tw
+172.16.250.60		js.csc.com.tw
+172.16.250.60		ummail.csc.com.tw
+172.16.250.60		ummail2.csc.com.tw
+172.16.250.60		intracwsp.csc.com.tw
+172.16.250.64		umbulletin.csc.com.tw
+172.16.250.65		intra7.csc.com.tw
+172.16.250.65		mobile.csc.com.tw
+172.16.250.65		uibuilder.csc.com.tw
+172.16.250.67		f3portal.csc.com.tw
+172.16.250.68		intra8.csc.com.tw
+172.16.250.68		intra9.csc.com.tw
+172.16.250.69		culture.csc.com.tw
+172.16.250.82		service.csc.com.tw
+172.16.250.82		cybersec.csc.com.tw
+172.16.250.105		dept.csc.com.tw
+172.16.250.106		hackmd.csc.com.tw
+172.16.250.107		t4patent.csc.com.tw
+172.16.250.133		search.csc.com.tw
+172.16.250.169		y6pmobile.csc.com.tw
+172.16.250.200		F30-FI01.tw.csc.com
+172.16.250.253		F30-DC01.tw.csc.com
+172.16.250.254		F30-DC02.tw.csc.com
+
+172.16.251.15		drweb.csc.com.tw
+172.16.251.102		intra.csc.com.tw
+172.16.251.112		mvbtcp.csc.com.tw
+172.16.251.117		km.csc.com.tw
+172.16.251.117		kmweb2.csc.com.tw
+172.16.251.117		elearning2.csc.com.tw
+172.16.251.132		csc-fp01.tw.csc.com
+172.16.251.147		testeip.csc.com.tw
+172.16.251.147		intrat.csc.com.tw 
+172.16.251.154		intra5.csc.com.tw
+172.16.251.159		intra4.csc.com.tw
+172.16.251.183		iscm.csc.com.tw
+172.16.251.208		eip.csc.com.tw
+172.16.251.147		intraT.csc.com.tw
+172.16.251.147		intracwst.csc.com.tw 
+172.16.251.159		ux.csc.com.tw
+172.16.251.231		t41.csc.com.tw
+172.16.251.247		jws.csc.com.tw
+
+172.19.8.1			y6p6.csc.com.tw
+
+172.21.8.18			y6p1svr03.csc.com.tw
+172.21.9.15			w2mes.csc.com.tw
+172.22.116.3		y6p2.csc.com.tw
+172.23.51.1			y6p3websrv.csc.com.tw
+172.23.101.209 		y6t1websrv.csc.com.tw
+172.23.101.209 		y41.csc.com.tw
+172.23.101.209 		y42.csc.com.tw
+172.23.101.209 		y48.csc.com.tw
+172.24.56.1			y6p4fs1.csc.com.tw
+172.25.5.1			w4mes.csc.com.tw
+
+172.28.1.26			cscqs01.csc.com.tw
+172.28.1.31			spam.csc.com.tw
+172.28.1.31			smtp.csc.com.tw
+172.28.1.32			mail.csc.com.tw
+172.28.1.34			glr.csc.com.tw
+172.28.1.47			www.csc.com.tw
+172.28.1.147		mwweb.csc.com.tw
+172.28.1.151		gm.csc.com.tw
+

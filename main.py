@@ -52,6 +52,24 @@ def delete_route(target_host):
         print(f"An unexpected error occurred: {e}")
         return False
 
+def set_proxy(proxy_server):
+    """Configures the system-wide proxy settings.
+    Returns True on success, False on failure.
+    """
+    try:
+        command = ["netsh", "winhttp", "set", "proxy", proxy_server]
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        print(f"Successfully set proxy to: {proxy_server}")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Error setting proxy: {e}")
+        print(f"Stdout: {e.stdout}")
+        print(f"Stderr: {e.stderr}")
+        return False
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return False
+
 def main():
     """Main function to run the tool."""
     if not is_admin():
