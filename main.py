@@ -1,5 +1,12 @@
 import ctypes
 import os
+import configparser
+
+def load_config(file_path="config.ini"):
+    """Reads the configuration file and returns a dictionary."""
+    config = configparser.ConfigParser()
+    config.read(file_path)
+    return {section: dict(config.items(section)) for section in config.sections()}
 
 def is_admin():
     """Check if the script is running with administrative privileges."""
