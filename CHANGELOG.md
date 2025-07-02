@@ -5,6 +5,11 @@
 本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
 
+## [0.5.0] - 2025-07-02
+
+### 新增 (Added)
+- 實作了在主介面顯示當前網路狀態（IP 位址、Proxy 狀態等）的功能。
+
 ## [0.4.2] - 2025-07-02
 
 ### 文件 (Docs)
