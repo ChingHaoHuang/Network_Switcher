@@ -5,10 +5,19 @@
 本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
 
+## [0.7.0] - 2025-07-02
+
+### 文件 (Docs)
+- 新增 `WORKFLOW.md`，定義了標準化的開發工作流程。
+- 根據「分層上下文」策略重構 `GEMINI.md`，以優化與不同能力 LLM 的協作效率。
+
 ## [0.6.0] - 2025-07-02
 
 ### 重構 (Refactor)
 - 將 `main.py` 中的核心邏輯拆分到 `src/` 目錄下的獨立模組中，提高了程式碼的可維護性和清晰度。
+
+### Changed
+- 增強了主選單的使用者輸入驗證，並重構了 `main` 函式以提高程式碼的可讀性和健壯性。
 
 ### 文件 (Docs)
 - 更新 `PROJECT_STANDARDS.md`，新增測試報告命名規範。
