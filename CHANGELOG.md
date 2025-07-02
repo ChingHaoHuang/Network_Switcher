@@ -5,6 +5,11 @@
 本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
 
+## [0.4.1] - 2025-07-02
+
+### 變更 (Changed)
+- 使用 `colorama` 套件美化了主程式的使用者互動選單。
+
 ## [0.4.0] - 2025-07-02
 
 ### 新增 (Added)
