@@ -79,6 +79,7 @@ graph TD
 *   **測試框架**: 統一使用 `pytest`。
 *   **測試類型**: 鼓勵撰寫單元測試 (Unit Tests) 和功能整合測試 (Functional Integration Tests)。
 *   **測試報告**: 建議使用 `pytest-html` 套件產生 HTML 格式的測試報告，方便查閱與分享。
+    *   **命名規範**: 測試報告檔案應以 `test_report_<版本/里程碑>_<YYYYMMDD_HHMMSS>.html` 格式命名，例如 `test_report_v0.6_20250702_143000.html`。報告應儲存在專案根目錄下的 `test_reports/` 目錄中。
 
 ## 版本控制規範
 

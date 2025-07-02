@@ -1,5 +1,5 @@
 import pytest
-from main import is_admin
+from src.admin_checker import is_admin
 
 def test_is_admin_returns_boolean():
     """

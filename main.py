@@ -1,18 +1,11 @@
-import ctypes
-import os
-import configparser
-import subprocess
-import socket
-import winreg
-import logging
 from colorama import Fore, Style, init
-
-def load_config(file_path="config.ini"):
-    """讀取設定檔並回傳一個字典。
-    """
-    config = configparser.ConfigParser()
-    config.read(file_path)
-    return {section: dict(config.items(section)) for section in config.sections()}
+from src.config_manager import load_config
+from src.admin_checker import is_admin
+from src.network_info import get_ip_address, get_windows_proxy_settings
+from src.route_manager import add_route, delete_route
+from src.proxy_manager import set_proxy
+from src.hosts_manager import sync_hosts_file
+from src.logger import setup_logging
 
 def is_admin():
     """檢查腳本是否以系統管理員權限運行。

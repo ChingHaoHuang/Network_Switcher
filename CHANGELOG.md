@@ -2,8 +2,16 @@
 
 本專案的所有顯著變更都將記錄在此檔案中。
 
-本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
+本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
+
+## [0.6.0] - 2025-07-02
+
+### 重構 (Refactor)
+- 將 `main.py` 中的核心邏輯拆分到 `src/` 目錄下的獨立模組中，提高了程式碼的可維護性和清晰度。
+
+### 文件 (Docs)
+- 更新 `PROJECT_STANDARDS.md`，新增測試報告命名規範。
 
 ## [0.5.2] - 2025-07-02
 
