@@ -5,6 +5,11 @@
 本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
 
+## [0.4.2] - 2025-07-02
+
+### 文件 (Docs)
+- 更新 `ROADMAP.md`，將改善建議納入未來的開發路線圖。
+
 ## [0.4.1] - 2025-07-02
 
 ### 變更 (Changed)
