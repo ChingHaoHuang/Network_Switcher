@@ -111,8 +111,7 @@ def add_route(target_host, gateway):
         return True
     except subprocess.CalledProcessError as e:
         print(f"添加路由錯誤: {e}")
-        print(f"標準輸出: {e.stdout}")
-        print(f"標準錯誤: {e.stderr}")
+        print(f"標準輸出: {e.stdout}\n標準錯誤: {e.stderr}")
         return False
     except Exception as e:
         print(f"發生意外錯誤: {e}")
@@ -129,8 +128,7 @@ def delete_route(target_host):
         return True
     except subprocess.CalledProcessError as e:
         print(f"刪除路由錯誤: {e}")
-        print(f"標準輸出: {e.stdout}")
-        print(f"標準錯誤: {e.stderr}")
+        print(f"標準輸出: {e.stdout}\n標準錯誤: {e.stderr}")
         return False
     except Exception as e:
         print(f"發生意外錯誤: {e}")
@@ -147,8 +145,7 @@ def set_proxy(proxy_server):
         return True
     except subprocess.CalledProcessError as e:
         print(f"設定代理錯誤: {e}")
-        print(f"標準輸出: {e.stdout}")
-        print(f"標準錯誤: {e.stderr}")
+        print(f"標準輸出: {e.stdout}\n標準錯誤: {e.stderr}")
         return False
     except Exception as e:
         print(f"發生意外錯誤: {e}")
@@ -190,7 +187,7 @@ def main():
     config = load_config()
     
     while True:
-        print(Style.BRIGHT + Fore.CYAN + "--- 網路切換工具 ---")
+        print(Style.BRIGHT + Fore.CYAN + "\n--- 網路切換工具 ---")
         print(Fore.YELLOW + "請選擇要執行的操作：")
         print(Fore.GREEN + "1. 新增網路路由")
         print(Fore.GREEN + "2. 刪除網路路由")
