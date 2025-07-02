@@ -5,6 +5,12 @@
 本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
 
+## [0.4.0] - 2025-07-02
+
+### 新增 (Added)
+- 實作了同步 `hosts` 檔案的功能。
+- 在主程式中新增了使用者互動選單。
+
 ## [0.3.0] - 2025-07-01
 
 ### 新增 (Added)

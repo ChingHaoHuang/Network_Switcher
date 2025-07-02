@@ -70,14 +70,75 @@ def set_proxy(proxy_server):
         print(f"An unexpected error occurred: {e}")
         return False
 
+def sync_hosts_file(source_path, dest_path):
+    """Copies the content of the source hosts file to the destination.
+    Returns True on success, False on failure.
+    """
+    try:
+        with open(source_path, 'r', encoding='utf-8') as src:
+            content = src.read()
+        with open(dest_path, 'w', encoding='utf-8') as dest:
+            dest.write(content)
+        print(f"Successfully synced hosts file from {source_path} to {dest_path}")
+        return True
+    except Exception as e:
+        print(f"Error syncing hosts file: {e}")
+        return False
+
 def main():
     """Main function to run the tool."""
     if not is_admin():
-        print("Error: Please re-run this script as an Administrator.")
+        print("錯誤：請以系統管理員身分重新執行此指令碼。")
         return
 
-    print("Welcome, Administrator!")
-    # More logic will be added here following TDD.
+    config = load_config()
+    
+    while True:
+        print("\n歡迎，系統管理員！")
+        print("請選擇要執行的操作：")
+        print("1. 新增網路路由")
+        print("2. 刪除網路路由")
+        print("3. 設定系統 Proxy")
+        print("4. 同步 hosts 檔案")
+        print("0. 結束程式")
+
+        choice = input("請輸入選項：")
+
+        if choice == '1':
+            gateway = config.get('Routes', {}).get('gateway')
+            target_hosts = config.get('Routes', {}).get('target_hosts', '').split(',')
+            if not gateway or not target_hosts:
+                print("錯誤：設定檔中缺少路由設定。")
+                continue
+            for host in target_hosts:
+                add_route(host.strip(), gateway)
+        elif choice == '2':
+            target_hosts = config.get('Routes', {}).get('target_hosts', '').split(',')
+            if not target_hosts:
+                print("錯誤：設定檔中缺少路由設定。")
+                continue
+            for host in target_hosts:
+                delete_route(host.strip())
+        elif choice == '3':
+            proxy_server = config.get('Proxy', {}).get('server')
+            if not proxy_server:
+                print("錯誤：設定檔中缺少 Proxy 伺服器設定。")
+                continue
+            set_proxy(proxy_server)
+        elif choice == '4':
+            # For now, we'll use a placeholder for the source hosts file
+            # In a real scenario, this would be a file managed by the user
+            source_hosts_path = "network reference/hosts" 
+            system_hosts_path = config.get('HostsFile', {}).get('path')
+            if not system_hosts_path:
+                print("錯誤：設定檔中缺少 hosts 檔案路徑設定。")
+                continue
+            sync_hosts_file(source_hosts_path, system_hosts_path)
+        elif choice == '0':
+            print("正在結束程式...")
+            break
+        else:
+            print("無效的選項，請重新輸入。")
 
 if __name__ == "__main__":
     main()
