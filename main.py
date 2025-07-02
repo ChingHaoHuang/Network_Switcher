@@ -4,6 +4,7 @@ import configparser
 import subprocess
 import socket
 import winreg
+import logging
 from colorama import Fore, Style, init
 
 def load_config(file_path="config.ini"):
@@ -168,9 +169,19 @@ def sync_hosts_file(source_path, dest_path):
         print(f"同步 hosts 檔案錯誤: {e}")
         return False
 
+def setup_logging():
+    """根據 config.ini 中的設定初始化日誌系統。"""
+    config = load_config()
+    log_level_str = config.get('Settings', {}).get('log_level', 'INFO').upper()
+    log_level = getattr(logging, log_level_str, logging.INFO)
+
+    logging.basicConfig(level=log_level, format='%(asctime)s - %(levelname)s - %(message)s',
+                        handlers=[logging.FileHandler("app.log")])
+
 def main():
     """主函數，運行工具。"""
     init(autoreset=True) # Initialize Colorama
+    setup_logging() # Setup logging
 
     if not is_admin():
         print(Fore.RED + "錯誤：請以系統管理員身分重新執行此指令碼。")
@@ -179,7 +190,7 @@ def main():
     config = load_config()
     
     while True:
-        print(Style.BRIGHT + Fore.CYAN + "\n歡迎，系統管理員！")
+        print(Style.BRIGHT + Fore.CYAN + "--- 網路切換工具 ---")
         print(Fore.YELLOW + "請選擇要執行的操作：")
         print(Fore.GREEN + "1. 新增網路路由")
         print(Fore.GREEN + "2. 刪除網路路由")
