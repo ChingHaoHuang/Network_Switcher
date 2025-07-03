@@ -30,34 +30,26 @@ graph TD
 
 ```
 
-#### **4. 開發流程：測試驅動開發 (TDD)**
-本專案嚴格遵循「紅燈 -> 綠燈 -> 重構」的 TDD 循環，以確保程式碼的穩定與可靠性。
+---
 
-```mermaid
-sequenceDiagram
-    participant 開發者
-    participant 程式碼
-    participant 測試
+## 專案結構與文件導覽
 
-    開發者->>測試: 1. 撰寫失敗的測試 (紅燈)
-    Note right of 測試: `pytest` -> 顯示測試失敗
-    測試-->>開發者: 回報失敗 (ImportError, AssertionError)
+為了幫助您快速了解本專案，我們建議您根據您的身分，從以下文件開始：
 
-    開發者->>程式碼: 2. 撰寫最精簡的程式碼
-    開發者->>測試: 執行測試
-    Note right of 測試: `pytest` -> 顯示測試通過
-    測試-->>開發者: 回報成功 (綠燈)
+*   **如果您是使用者 (User):**
+    *   **[README.md](README.md) (就是本文件)**: 了解專案目標、功能和如何快速安裝使用。
+    *   **[LICENSE](LICENSE)**: 了解本專案的使用授權。
+    *   **[CHANGELOG.md](CHANGELOG.md)**: 查看最新的版本變更。
 
-    開發者->>程式碼: 3. 重構程式碼
-    Note left of 程式碼: 優化結構、提升可讀性
-    開發者->>測試: 再次執行測試
-    Note right of 測試: `pytest` -> 確認測試依然通過
-    測試-->>開發者: 回報成功
+*   **如果您是貢獻者 (Contributor):**
+    *   請務必從 **[CONTRIBUTING.md](CONTRIBUTING.md)** 開始，它將引導您完成：
+        *   設定開發環境。
+        *   了解我們的 **[開發工作流程 (WORKFLOW.md)](WORKFLOW.md)**。
+        *   遵循我們的 **[專案標準 (PROJECT_STANDARDS.md)](PROJECT_STANDARDS.md)**。
+        *   使用 GitHub Issues 回報問題或建議。
 
-    loop 開發下一個功能
-        開發者->>測試: 重複 TDD 循環...
-    end
-```
+*   **如果您是 AI 協作者 (AI Agent):**
+    *   請優先讀取 **[AI_COLLAB.md](AI_COLLAB.md)**，以獲取為 AI 優化的專案上下文和協作指南。
 
 ---
 

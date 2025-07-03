@@ -5,6 +5,13 @@
 本檔案的格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/)，
 且本專案遵循[語意化版本](https://semver.org/lang/zh-TW/) (Semantic Versioning)。
 
+## [0.8.0] - 2025-07-03
+
+### 文件 (Docs)
+- 新增 `LICENSE` 文件，採用 MIT 授權條款。
+- 新增 `CONTRIBUTING.md`，提供詳細的貢獻者指南。
+- 將 `GEMINI.md` 重新命名為 `AI_COLLAB.md`，並確立其作為通用的 AI 協作上下文文件。
+
 ## [0.7.0] - 2025-07-02
 
 ### 文件 (Docs)
