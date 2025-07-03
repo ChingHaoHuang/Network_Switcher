@@ -14,20 +14,39 @@
 ```mermaid
 graph TD
     subgraph "專案根目錄 (MyQQ)"
-        A["main.py (主程式)"]
-        B["config.ini (設定檔)"]
-        C["tests/ (測試目錄)"]
-        D["README.md (說明書)"]
-        E["CHANGELOG.md (變更日誌)"]
-        F["ROADMAP.md (開發路線圖)"]
-        H["GEMINI.md (專案總結與注意事項)"]
-        I[".venv/ (虛擬環境)"]
-        J["network reference/ (網路參考資料)"]
+        direction LR
+        subgraph "核心程式碼"
+            A["main.py"]
+            B["config.ini"]
+            C["src/"]
+        end
+        subgraph "測試"
+            D["tests/"]
+            E["test_reports/"]
+        end
+        subgraph "專案文件"
+            F["README.md"]
+            G["CONTRIBUTING.md"]
+            H["CHANGELOG.md"]
+            I["ROADMAP.md"]
+            J["WORKFLOW.md"]
+            K["LICENSE"]
+        end
+        subgraph "標準與協作"
+            L["PROJECT_STANDARDS.md"]
+            M["AI_COLLAB.md"]
+        end
+        subgraph "環境與其他"
+            N["requirements.txt"]
+            O[".gitignore"]
+            P[".venv/"]
+        end
     end
 
-    A -- "讀取設定" --> B
-    C -- "測試" --> A
-
+    C -- "被測試" --> D
+    A -- "讀取" --> B
+    J -- "定義" --> L
+    G -- "指導" --> J
 ```
 
 ---

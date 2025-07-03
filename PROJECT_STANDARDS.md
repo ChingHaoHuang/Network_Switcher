@@ -25,7 +25,7 @@ graph TD
         E["README.md (專案總覽與快速上手)"]
         F["CHANGELOG.md (版本變更日誌)"]
         G["ROADMAP.md (開發路線圖與進度追蹤)"]
-        H["GEMINI.md (專案總結與開發注意事項)"]
+        H["AI_COLLAB.md (AI 協作上下文)"]
         I[".venv/ (Python 虛擬環境)"]
         J["requirements.txt (相依套件列表)"]
         K["network reference/ (網路參考資料)"]
@@ -44,7 +44,7 @@ graph TD
 *   **`README.md`**: 專案的快速總覽、安裝與使用指南。
 *   **`CHANGELOG.md`**: 記錄專案版本變更的日誌。
 *   **`ROADMAP.md`**: 專案的開發路線圖，用於追蹤進度與未來規劃。
-*   **`GEMINI.md`**: 專案的核心上下文、總結與開發注意事項。
+*   **`AI_COLLAB.md`**: 專案的核心上下文、總結與開發注意事項。
 *   **`.venv/`**: Python 虛擬環境目錄，應被 `.gitignore` 忽略。
 *   **`requirements.txt`**: 記錄專案所有相依套件及其精確版本，用於環境重建。
 
@@ -71,7 +71,7 @@ graph TD
     *   遵循 [語意化版本 (Semantic Versioning)](https://semver.org/lang/zh-TW/)。
 *   **`ROADMAP.md`**:
     *   作為開發路線圖，使用 Markdown 的待辦事項列表 (`- [ ]` 和 `- [x]`) 追蹤功能進度。
-*   **`GEMINI.md`**:
+*   **`AI_COLLAB.md`**:
     *   作為專案的核心上下文與知識庫，包含專案總結、開發注意事項與 LLM 協作提示。
 
 ## 測試規範
