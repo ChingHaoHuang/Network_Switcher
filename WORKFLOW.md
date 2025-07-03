@@ -2,6 +2,59 @@
 
 本文件定義了 `Network Switcher` 專案的標準開發工作流程，旨在確保程式碼品質、可追蹤性及團隊協作的一致性。
 
+## 首次開發環境設定 (First-Time Setup)
+
+在開始開發之前，請遵循以下步驟設定您的開發環境。
+
+1.  **安裝 uv**:
+    *   我們強烈建議使用 `uv` 來管理 Python 虛擬環境和依賴。請參考 [uv 官方文件](https://github.com/astral-sh/uv) 進行安裝。
+    *   通常，您可以使用 `pip` 或 `pipx` 來安裝：
+        ```bash
+        # 使用 pip
+        python -m pip install uv
+        # 或使用 pipx (推薦)
+        pipx install uv
+        ```
+
+2.  **建立虛擬環境**:
+    *   在專案的根目錄下，執行以下指令來建立一個名為 `.venv` 的虛擬環境：
+        ```bash
+        python -m uv venv
+        ```
+
+3.  **安裝依賴**:
+    *   建立環境後，使用以下指令將 `requirements.txt` 中定義的所有依賴安裝到您的虛擬環境中：
+        ```bash
+        python -m uv pip sync requirements.txt
+        ```
+
+4.  **執行指令 (兩種方式)**:
+
+    *   **方式一：啟動虛擬環境 (傳統方式)**
+        *   在終端機中執行多個指令前，可以先啟動虛擬環境：
+        *   **Windows (PowerShell)**:
+            ```powershell
+            . .\.venv\Scripts\Activate.ps1
+            ```
+        *   **Windows (CMD)**:
+            ```cmd
+            .venv\Scripts\activate.bat
+            ```
+        *   **Linux / macOS**:
+            ```bash
+            source .venv/bin/activate
+            ```
+        *   啟動後，您的終端機提示字元前應該會出現 `(.venv)` 字樣。
+
+    *   **方式二：使用 `uv run` (推薦)**
+        *   `uv` 提供了一個更便捷的方式來執行指令，無需手動啟動/停用環境。
+        *   您可以在任何指令前加上 `python -m uv run`，`uv` 會自動在 `.venv` 環境中執行它。
+        *   例如：
+            ```bash
+            python -m uv run pytest --version
+            ```
+        *   **在後續的工作流程中，我們將優先使用此方式。**
+
 ## 工作流程概覽
 
 我們的開發流程遵循以下核心步驟：
@@ -29,9 +82,12 @@
 
 3.  **執行測試與產出報告 (Test Execution & Reporting)**
     *   **目標**：驗證所有功能是否正常運作並存檔記錄。
-    *   **工具**：`pytest --html=...`, `get_report_filename.py`
+    *   **工具**：`uv`, `pytest`, `get_report_filename.py`
     *   **流程**：
-        *   執行 `pytest` 來運行所有測試。
+        *   使用 `uv run` 來執行所有測試：
+            ```bash
+            python -m uv run pytest
+            ```
         *   使用 `get_report_filename.py` 生成標準化的報告名稱。
         *   將 HTML 測試報告儲存於 `test_reports/` 目錄中。
 

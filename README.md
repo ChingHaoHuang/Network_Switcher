@@ -8,7 +8,7 @@
 #### **2. 技術棧**
 *   **語言**: Python 3.x
 *   **測試框架**: `pytest`
-*   **相依性管理**: 使用 Python 內建的 `venv` 模組建立虛擬環境，並透過 `pip` 管理專案所需的套件。
+*   **環境與相依性管理**: `uv`
 
 #### **3. 專案架構圖**
 ```mermaid
@@ -74,39 +74,38 @@ graph TD
 
 ## 快速上手
 
+本專案使用 `uv` 來統一管理開發環境與依賴，提供流暢的設定體驗。
+
 ### 環境需求
-- Python 3.x
+- [Python 3.x](https://www.python.org/downloads/)
+- [uv](https://github.com/astral-sh/uv) (可透過 `pip install uv` 安裝)
 
 ### 安裝與設定
 
 1.  **複製專案庫：**
     ```sh
-    git clone <your-repo-url>
-    cd MyQQ
+    git clone https://github.com/ChingHaoHuang/Network_Switcher.git
+    cd Network_Switcher
     ```
 
-2.  **建立並啟用虛擬環境：**
-    本專案使用虛擬環境來管理相依套件。
+2.  **建立虛擬環境：**
+    `uv` 會在專案根目錄下建立一個 `.venv` 資料夾來存放虛擬環境。
     ```sh
-    # 建立虛擬環境
-    py -m venv .venv
-
-    # 啟用虛擬環境
-    .venv\Scripts\activate
+    uv venv
     ```
-    *啟用後，您的命令提示字元前端會出現 `(.venv)` 字樣。*
 
 3.  **安裝相依套件：**
-    在虛擬環境啟用後，安裝所有必要的套件。
+    此指令會讀取 `requirements.txt` 並將所有依賴安裝到 `.venv` 中。
     ```sh
-    pip install pytest pytest-html
+    uv pip sync requirements.txt
     ```
+    設定完成！您的開發環境已經準備就緒。
 
 ## 使用方法
 
-在專案根目錄下，執行以下指令來啟動主程式：
+在專案根目錄下，使用 `uv run` 來執行主程式：
 ```sh
-python main.py
+uv run python main.py
 ```
 *請注意：您必須在具有「系統管理員」權限的終端機中執行此指令，工具才能正常運作。*
 
@@ -114,15 +113,15 @@ python main.py
 
 ### 執行測試
 
-本專案使用 `pytest` 進行測試。在啟用虛擬環境後，於專案根目錄執行以下指令即可運行所有測試：
+使用 `uv run` 來執行 `pytest`，它會自動使用虛擬環境中的測試框架。
 ```sh
-pytest
+uv run pytest
 ```
 
 ### 產生測試報告
 
-若要產生詳細的 HTML 格式測試報告，請執行：
+同樣使用 `uv run` 來執行含有參數的指令。
 ```sh
-pytest --html=test_report.html
+uv run pytest --html=test_report.html
 ```
 此指令會在專案根目錄下建立一個名為 `test_report.html` 的檔案。

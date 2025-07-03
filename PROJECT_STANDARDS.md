@@ -9,7 +9,7 @@
 *   **測試驅動開發 (Test-Driven Development, TDD)**：所有功能開發都必須遵循 TDD 流程。先撰寫失敗的測試，再實現最精簡的程式碼使其通過，最後進行重構。
 *   **文件先行 (Documentation First)**：在開發初期就應建立並持續維護專案文件，確保文件與程式碼同步更新。
 *   **模組化與清晰性**：程式碼應具備高內聚、低耦合的特性，並保持清晰、易讀的風格。
-*   **環境隔離**：所有專案都必須使用 Python 虛擬環境來管理相依套件，避免與系統全域環境衝突。
+*   **環境隔離**：所有專案都必須使用虛擬環境管理相依套件。我們推薦並在本專案中使用 `uv` 來建立和管理虛擬環境。
 
 ## 專案架構規範
 
@@ -20,33 +20,46 @@ graph TD
     subgraph "專案根目錄"
         A["main.py (主程式進入點)"]
         B["config.ini (專案設定檔)"]
-        C["tests/ (測試程式碼目錄)"]
-        D["docs/ (額外文件，若有)"]
-        E["README.md (專案總覽與快速上手)"]
-        F["CHANGELOG.md (版本變更日誌)"]
-        G["ROADMAP.md (開發路線圖與進度追蹤)"]
-        H["AI_COLLAB.md (AI 協作上下文)"]
-        I[".venv/ (Python 虛擬環境)"]
-        J["requirements.txt (相依套件列表)"]
-        K["network reference/ (網路參考資料)"]
+        C["src/ (核心原始碼目錄)"]
+        D["tests/ (測試程式碼目錄)"]
+        E["docs/ (額外文件，若有)"]
+        F["README.md (專案總覽)"]
+        G["WORKFLOW.md (開發工作流程)"]
+        H["PROJECT_STANDARDS.md (專案標準)"]
+        I["AI_COLLAB.md (AI 協作上下文)"]
+        J[".venv/ (Python 虛擬環境)"]
+        K["requirements.in (直接依賴)"]
+        L["requirements.txt (鎖定依賴)"]
+        M["assets/ (靜態資源)"]
+        N["network reference/ (網路參考資料)"]
     end
-    A -- "讀取設定" --> B
-    C -- "測試" --> A
-    style H fill:#f9f,stroke:#333,stroke-width:2px
+    A -- "依賴" --> C
+    D -- "測試" --> C
+    style I fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
-*   **`main.py`**: 專案的主程式進入點，包含核心邏輯。
-*   **`config.ini`**: 專案的所有可變設定參數應集中於此，使用 INI 格式。
-*   **`tests/`**: 存放所有測試程式碼。
-    *   `__init__.py`: 標示 `tests` 為一個 Python 套件。
-    *   `test_*.py`: 測試案例檔案，命名必須以 `test_` 開頭。
+*   **`main.py`**: 專案的主程式進入點。
+*   **`src/`**: 存放所有核心功能的 Python 原始碼模組。
+*   **`tests/`**: 存放所有 `pytest` 測試程式碼。
+*   **`assets/`**: 存放專案所需的靜態資源，例如 CSS 樣式表、圖片等。
+*   **`network reference/`**: 存放與網路設定相關的參考文件或腳本。
 *   **`docs/`**: 存放專案的額外文件，例如詳細設計文件、API 文件等（若有）。
+*   **`config.ini`**: 專案的所有可變設定參數應集中於此。
 *   **`README.md`**: 專案的快速總覽、安裝與使用指南。
+*   **`WORKFLOW.md`**: 標準化的開發工作流程，包含環境設定與常用指令。
+*   **`PROJECT_STANDARDS.md`**: (本文件) 定義專案的開發標準。
 *   **`CHANGELOG.md`**: 記錄專案版本變更的日誌。
 *   **`ROADMAP.md`**: 專案的開發路線圖，用於追蹤進度與未來規劃。
 *   **`AI_COLLAB.md`**: 專案的核心上下文、總結與開發注意事項。
-*   **`.venv/`**: Python 虛擬環境目錄，應被 `.gitignore` 忽略。
-*   **`requirements.txt`**: 記錄專案所有相依套件及其精確版本，用於環境重建。
+*   **`.venv/`**: Python 虛擬環境目錄，由 `uv venv` 建立，應被 `.gitignore` 忽略。
+*   **`requirements.in`**: 定義專案的**直接**相依套件。
+*   **`requirements.txt`**: 由 `uv pip compile` 從 `requirements.in` 自動生成，記錄所有相依套件（包含子依賴）的精確版本，**不應手動修改**。
+
+## 輔助腳本 (Utility Scripts)
+
+專案根目錄下包含一些用於輔助開發的 Python 腳本：
+*   **`get_report_filename.py`**: 用於生成帶有時間戳的標準化測試報告檔名。
+*   **`run_integration_tests.py`**: 用於執行特定整合測試的腳本。
 
 ## 程式碼規範
 

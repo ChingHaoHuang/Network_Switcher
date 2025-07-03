@@ -53,8 +53,14 @@
 *   變數作用域與延遲擴展：需啟用 `setlocal enabledelayedexpansion` 並使用 `!variable!` 語法。
 
 ### 2. Python 開發環境管理
-*   **虛擬環境的重要性**：務必使用 `venv` 或 `conda` 建立虛擬環境。
-*   **`requirements.txt` 的維護**：新增或移除套件後，應及時更新 `requirements.txt`。
+*   **虛擬環境與依賴管理**: 本專案使用 `uv` 統一管理虛擬環境和依賴。
+*   **標準流程**:
+    *   使用 `uv venv` 建立 `.venv` 虛擬環境。
+    *   使用 `requirements.in` 定義直接依賴。
+    *   使用 `uv pip compile` 生成 `requirements.txt`。
+    *   使用 `uv pip sync` 將依賴安裝至 `.venv`。
+    *   使用 `uv run` 在虛擬環境中執行指令。
+*   **核心文件**: 所有詳細步驟均已標準化，請參閱 **[開發工作流程 (WORKFLOW.md)](WORKFLOW.md)**。
 
 ### 3. 測試驅動開發 (TDD) 實踐
 *   **紅燈 -> 綠燈 -> 重構**：遵循 TDD 的核心循環。
