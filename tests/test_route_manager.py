@@ -1,25 +1,17 @@
 import pytest
-from main import add_route, delete_route
+from src.route_manager import add_route, delete_route
 
-@pytest.mark.skip(reason="This test requires administrative privileges and interacts with the live system's routing table.")
-def test_add_route_successfully():
+@pytest.mark.integration
+def test_add_and_delete_route_successfully():
     """
-    Tests that add_route() can successfully add a new network route.
+    Tests that add_route() can successfully add and then delete a new network route.
     This is more of a functional/integration test and requires careful handling.
     """
-    target_host = "1.2.3.4"  # A dummy target
-    gateway = "192.168.1.1" # A common gateway
+    target_host = "8.8.8.8"  # A public DNS server, less likely to conflict
+    gateway = "192.168.1.1" # A common gateway, might need adjustment
     
-    # The function should return True on success
+    # Add the route and assert success
     assert add_route(target_host, gateway) is True
-
-@pytest.mark.skip(reason="This test requires administrative privileges and interacts with the live system's routing table.")
-def test_delete_route_successfully():
-    """
-    Tests that delete_route() can successfully delete a network route.
-    This is more of a functional/integration test and requires careful handling.
-    """
-    target_host = "1.2.3.4"  # The dummy target to delete
     
-    # The function should return True on success
+    # Delete the route and assert success
     assert delete_route(target_host) is True

@@ -1,7 +1,7 @@
 import pytest
-from main import set_proxy
+from src.proxy_manager import set_proxy
 
-@pytest.mark.skip(reason="This test requires administrative privileges and interacts with the live system's proxy settings.")
+@pytest.mark.integration
 def test_set_proxy_successfully():
     """
     Tests that set_proxy() can successfully configure the system proxy.

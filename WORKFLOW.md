@@ -19,6 +19,14 @@
         *   在 `tests/` 目錄下為變更的功能撰寫或更新單元測試。
         *   遵循測試驅動開發 (TDD) 的精神，確保所有測試都能通過。
 
+    *   **依賴管理 (Dependency Management)**
+        *   **目標**: 維護專案依賴的一致性與可追蹤性。
+        *   **工具**: `uv`, `requirements.in`, `requirements.txt`
+        *   **流程**:
+            *   若要新增或移除專案的**直接依賴**，請修改 `requirements.in` 檔案。
+            *   修改後，執行 `python -m uv pip compile requirements.in --output-file requirements.txt` 來重新生成 `requirements.txt`。
+            *   `requirements.txt` 檔案**不應手動修改**，它是由 `uv` 自動生成的。
+
 3.  **執行測試與產出報告 (Test Execution & Reporting)**
     *   **目標**：驗證所有功能是否正常運作並存檔記錄。
     *   **工具**：`pytest --html=...`, `get_report_filename.py`
